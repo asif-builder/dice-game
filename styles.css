@@ -90,15 +90,6 @@ body {
   flex-direction: column;
 }
 
-/* ===== Container ===== */
-.container {
-  width: min(90%, 900px);
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px 16px;
-  flex: 1;
-}
-
 /* ===== Heading ===== */
 h1 {
   margin: 20px 0 10px;
@@ -118,7 +109,7 @@ p {
 }
 
 /* ===== Dice Row — always side by side ===== */
-.dice-container {
+.container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -126,6 +117,11 @@ p {
   gap: clamp(16px, 5vw, 60px);
   margin: 20px 0;
   flex-wrap: nowrap;
+  width: min(90%, 900px);
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 16px;
+  flex: 1;
 }
 
 /* ===== Individual Dice ===== */
