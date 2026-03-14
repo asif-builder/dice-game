@@ -76,120 +76,153 @@ footer {
 
 *{
   box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  background-color: #393E46;
-  margin: 0;
+body{
+  background: linear-gradient(135deg,#2c3e50,#1a1f25);
+  font-family: 'Indie Flower', cursive;
+  min-height:100vh;
 }
 
 /* container */
+
 .container{
-  width: 90%;
-  max-width: 900px;
-  margin: auto;
+  width:90%;
+  max-width:900px;
+  margin:auto;
   text-align:center;
+  padding-top:30px;
 }
 
 /* title */
-h1 {
-  margin: 30px 10px;
-  font-family: 'Lobster', cursive;
-  font-size: 4rem;
-  color:  #4ECCA3;
-  text-shadow: 5px 0 #232931;
-}
 
-/* dice wrapper */
-.container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+h1{
+  margin-bottom:40px;
+  font-family:'Lobster', cursive;
+  font-size:4rem;
+  color:#4ECCA3;
+  text-shadow:4px 4px 10px rgba(0,0,0,0.6);
 }
 
 /* dice area */
+
+.dice-area{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+/* dice card */
+
 .dice{
-  display: inline-block;
-  margin: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding:30px 40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+  width:220px;
 }
 
-p{
-  font-family: 'Indie Flower', cursive;
-  font-size: 1.8rem;
-  color: #4ECCA3;
+.dice:hover{
+  transform:translateY(-8px);
 }
 
-/* dice images */
-img{
-  width: 120px;
-  max-width: 100%;
+/* player text */
+
+.dice p{
+  font-size:1.6rem;
+  color:#ffffff;
+  letter-spacing:1px;
+  margin-bottom:15px;
+}
+
+/* dice image */
+
+.dice img{
+  width:120px;
+  transition:transform 0.3s ease;
+}
+
+/* roll animation */
+
+.roll{
+  animation: rollDice 0.35s ease;
+}
+
+@keyframes rollDice{
+
+0%{transform:rotate(0deg) scale(1)}
+25%{transform:rotate(90deg) scale(1.1)}
+50%{transform:rotate(180deg) scale(0.9)}
+75%{transform:rotate(270deg) scale(1.1)}
+100%{transform:rotate(360deg) scale(1)}
+
 }
 
 /* button */
-button {
-  display: block;
-  margin: 30px auto;
-  padding: 14px 28px;
-  font-size: 1.2rem;
-  font-family: 'Lobster', cursive;
-  color: white;
-  background: #ff4b6c;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.3s;
+
+button{
+  margin-top:35px;
+  padding:14px 30px;
+  font-size:1.2rem;
+  font-family:'Lobster', cursive;
+  color:white;
+  background:#ff4b6c;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-button:hover {
-  background: #ff1e3c;
-  transform: scale(1.1);
-}
-
-/* dice animation */
-.dice img {
-  transition: transform 0.3s ease;
-}
-
-.roll {
-  animation: rollDice 0.3s ease;
-}
-
-@keyframes rollDice {
-  0% { transform: rotate(0deg) scale(1); }
-  25% { transform: rotate(90deg) scale(1.1); }
-  50% { transform: rotate(180deg) scale(0.9); }
-  75% { transform: rotate(270deg) scale(1.1); }
-  100% { transform: rotate(360deg) scale(1); }
+button:hover{
+  background:#ff1e3c;
+  transform:scale(1.08);
 }
 
 /* footer */
-footer {
-  margin-top: 40px;
-  color: #EEEEEE;
-  text-align: center;
-  font-family: 'Indie Flower', cursive;
+
+footer{
+  margin-top:50px;
+  color:#eeeeee;
+  text-align:center;
+  font-size:1.1rem;
 }
 
+/* mobile */
 
-/* 📱 Mobile screens */
-@media (max-width: 600px) {
+@media (max-width:600px){
 
-  h1{
-    font-size: 2.2rem;
-  }
+h1{
+  font-size:2.2rem;
+}
 
-  p{
-    font-size: 1.3rem;
-  }
+.dice-area{
+  gap:20px;
+}
 
-  img{
-    width: 90px;
-  }
+.dice{
+  width:150px;
+  padding:20px;
+}
 
-  button{
-    font-size: 1rem;
-    padding: 12px 22px;
-  }
+.dice img{
+  width:80px;
+}
+
+.dice p{
+  font-size:1.2rem;
+}
+
+button{
+  font-size:1rem;
+  padding:12px 22px;
+}
 
 }
 
