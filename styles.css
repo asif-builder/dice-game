@@ -178,9 +178,3 @@ footer {
   font-family: 'Indie Flower', cursive;
   font-size: clamp(0.85rem, 2vw, 1rem);
 }
-/* ===== Tablet tweaks (optional) ===== */
-@media (max-width: 480px) {
-  .dice-container {
-    gap: 12px;
-  }
-}
