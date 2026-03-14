@@ -71,164 +71,134 @@ footer {
   text-align: center;
   font-family: 'Indie Flower', cursive;
 }
+*/
 
- */
+/* ===== Google Fonts Import ===== */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Indie+Flower&display=swap');
 
-*{
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-  background: linear-gradient(135deg,#2c3e50,#1a1f25);
+body {
+  background-color: #393E46;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Container ===== */
+.container {
+  width: min(90%, 900px);
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 16px;
+  flex: 1;
+}
+
+/* ===== Heading ===== */
+h1 {
+  margin: 20px 0 10px;
+  font-family: 'Lobster', cursive;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  color: #4ECCA3;
+  text-shadow: 4px 0 #232931;
+  line-height: 1.1;
+}
+
+/* ===== Paragraph ===== */
+p {
   font-family: 'Indie Flower', cursive;
-  min-height:100vh;
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  color: #4ECCA3;
+  margin: 8px 0;
 }
 
-/* container */
-
-.container{
-  width:90%;
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-  padding-top:30px;
+/* ===== Dice Row — always side by side ===== */
+.dice-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(16px, 5vw, 60px);
+  margin: 20px 0;
+  flex-wrap: nowrap;
 }
 
-/* title */
-
-h1{
-  margin-bottom:40px;
-  font-family:'Lobster', cursive;
-  font-size:4rem;
-  color:#4ECCA3;
-  text-shadow:4px 4px 10px rgba(0,0,0,0.6);
+/* ===== Individual Dice ===== */
+.dice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 0 1 auto;
 }
 
-/* dice area */
-
-.dice-area{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:50px;
-  flex-wrap:wrap;
+.dice p {
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
 }
 
-/* dice card */
-
-.dice{
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  padding:30px 40px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
-  transition:0.3s;
-  width:220px;
+/* ===== Dice Image ===== */
+.dice img {
+  width: clamp(80px, 20vw, 200px);
+  height: auto;
+  transition: transform 0.3s ease;
+  display: block;
 }
 
-.dice:hover{
-  transform:translateY(-8px);
+/* ===== Roll Animation ===== */
+.roll {
+  animation: rollDice 0.3s ease;
 }
 
-/* player text */
-
-.dice p{
-  font-size:1.6rem;
-  color:#ffffff;
-  letter-spacing:1px;
-  margin-bottom:15px;
+@keyframes rollDice {
+  0%   { transform: rotate(0deg)   scale(1);   }
+  25%  { transform: rotate(90deg)  scale(1.1); }
+  50%  { transform: rotate(180deg) scale(0.9); }
+  75%  { transform: rotate(270deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1);   }
 }
 
-/* dice image */
-
-.dice img{
-  width:120px;
-  transition:transform 0.3s ease;
+/* ===== Button ===== */
+button {
+  display: block;
+  margin: 24px auto;
+  padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 28px);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-family: 'Lobster', cursive;
+  color: white;
+  background: #ff4b6c;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  white-space: nowrap;
 }
 
-/* roll animation */
-
-.roll{
-  animation: rollDice 0.35s ease;
+button:hover {
+  background: #ff1e3c;
+  transform: scale(1.1);
 }
 
-@keyframes rollDice{
-
-0%{transform:rotate(0deg) scale(1)}
-25%{transform:rotate(90deg) scale(1.1)}
-50%{transform:rotate(180deg) scale(0.9)}
-75%{transform:rotate(270deg) scale(1.1)}
-100%{transform:rotate(360deg) scale(1)}
-
+button:active {
+  transform: scale(0.97);
 }
 
-/* button */
-
-button{
-  margin-top:35px;
-  padding:14px 30px;
-  font-size:1.2rem;
-  font-family:'Lobster', cursive;
-  color:white;
-  background:#ff4b6c;
-  border:none;
-  border-radius:50px;
-  cursor:pointer;
-  transition:0.3s;
+/* ===== Footer ===== */
+footer {
+  padding: 20px 16px;
+  color: #EEEEEE;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
-button:hover{
-  background:#ff1e3c;
-  transform:scale(1.08);
-}
-
-/* footer */
-
-footer{
-  margin-top:50px;
-  color:#eeeeee;
-  text-align:center;
-  font-size:1.1rem;
-}
-
-/* mobile */
-
-@media (max-width:600px){
-
-h1{
-  font-size:2.2rem;
-}
-
-.dice-area{
-  gap:20px;
-}
-
-.dice{
-  width:150px;
-  padding:20px;
-}
-
-.dice img{
-  width:80px;
-}
-
-.dice p{
-  font-size:1.2rem;
-}
-
-button{
-  font-size:1rem;
-  padding:12px 22px;
-}
-
-}
-
-button{
-font-size:1rem;
-padding:12px 22px;
-}
-
+/* ===== Tablet tweaks (optional) ===== */
+@media (max-width: 480px) {
+  .dice-container {
+    gap: 12px;
+  }
 }
